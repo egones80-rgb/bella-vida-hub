@@ -19,14 +19,17 @@ interface AnimatedGradientButtonProps extends React.ButtonHTMLAttributes<HTMLBut
   hoverGlowColor?: string;
 }
 
-export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, AnimatedGradientButtonProps>(
+export type AnimatedGradientButtonVariant = "primary" | "secondary";
+
+export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, AnimatedGradientButtonProps & { variant?: AnimatedGradientButtonVariant }>(
   (
     {
       className,
       asChild = false,
       children,
-      headColor = "#FFFFFF",
-      trailColor = "oklch(0.63 0.155 358)", // --rose-soft
+      variant = "primary",
+      headColor,
+      trailColor,
       trailLength = 30,
       animationDuration = 3,
       borderWidth = 2,
@@ -34,25 +37,32 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
       iconPosition = "left",
       iconSpacing = 8,
       cometCount = 1,
-      hoverFillColor = "oklch(0.47 0.166 356)", // --magenta
+      hoverFillColor,
       hoverTextColor = "#FFFFFF",
       hoverIconColor = "#FFFFFF",
-      hoverGlowColor = "oklch(0.63 0.155 358)", // --rose-soft
+      hoverGlowColor,
       ...props
     },
     ref
   ) => {
+    // Default values based on variant
+    const isPrimary = variant === "primary";
+    
+    const finalHeadColor = headColor || (isPrimary ? "#FFFFFF" : "oklch(0.97 0.02 350)");
+    const finalTrailColor = trailColor || (isPrimary ? "oklch(0.63 0.155 358)" : "oklch(0.47 0.166 356)");
+    const finalHoverFillColor = hoverFillColor || (isPrimary ? "oklch(0.47 0.166 356)" : "oklch(0.63 0.155 358)");
+    const finalHoverGlowColor = hoverGlowColor || (isPrimary ? "oklch(0.63 0.155 358)" : "oklch(0.47 0.166 356)");
     const Comp = asChild ? Slot : "button";
 
     const style = {
-      "--head-color": headColor,
-      "--trail-color": trailColor,
+      "--head-color": finalHeadColor,
+      "--trail-color": finalTrailColor,
       "--trail-length": `${trailLength}%`,
       "--anim-duration": `${animationDuration}s`,
       "--border-width": `${borderWidth}px`,
-      "--hover-fill": hoverFillColor,
+      "--hover-fill": finalHoverFillColor,
       "--hover-text": hoverTextColor,
-      "--hover-glow": hoverGlowColor,
+      "--hover-glow": finalHoverGlowColor,
       "--icon-spacing": `${iconSpacing}px`,
     } as React.CSSProperties;
 

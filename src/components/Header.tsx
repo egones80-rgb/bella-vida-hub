@@ -52,7 +52,12 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <AnimatedGradientButton asChild icon={<MessageCircle className="h-4 w-4" />} className="px-5 py-2 text-sm">
+          <AnimatedGradientButton 
+            asChild 
+            icon={<MessageCircle className="h-4 w-4" />} 
+            className="px-5 py-2 text-sm"
+            onClick={() => console.log('[AnimatedGradientButton] Header CTA clicado')}
+          >
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
               Agendar pelo WhatsApp
             </a>
@@ -78,7 +83,15 @@ export function Header() {
                   {l.label}
                 </a>
               ))}
-              <AnimatedGradientButton asChild icon={<MessageCircle className="h-4 w-4" />} className="mt-4 w-full">
+              <AnimatedGradientButton 
+                asChild 
+                icon={<MessageCircle className="h-4 w-4" />} 
+                className="mt-4 w-full"
+                onClick={() => {
+                  console.log('[AnimatedGradientButton] Mobile Header CTA clicado');
+                  setOpen(false);
+                }}
+              >
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                   Agendar pelo WhatsApp
                 </a>

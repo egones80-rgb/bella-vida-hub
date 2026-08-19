@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { SERVICES } from "@/data/services";
 import { whatsappLink } from "@/lib/site";
 
@@ -40,15 +41,21 @@ export function Services() {
               </span>
               <h3 className="mt-5 font-display text-2xl font-semibold text-foreground">{service.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-grow">{service.description}</p>
-              <a
-                href={whatsappLink(service.name)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-magenta-deep group/link"
+              <AnimatedGradientButton
+                asChild
+                className="mt-5 w-full py-2 text-xs"
+                icon={<CalendarDays className="h-3.5 w-3.5" />}
+                iconPosition="right"
+                onClick={() => console.log(`[AnimatedGradientButton] Agendar serviço: ${service.name}`)}
               >
-                Agendar
-                <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-              </a>
+                <a
+                  href={whatsappLink(service.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Agendar
+                </a>
+              </AnimatedGradientButton>
             </Card>
           </motion.div>
         ))}
