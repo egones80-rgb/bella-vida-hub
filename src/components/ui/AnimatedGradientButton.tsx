@@ -87,6 +87,9 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             z-index: 1;
             cursor: pointer;
             border: none;
+            pointer-events: auto !important;
+            user-select: auto !important;
+            touch-action: manipulation;
             color: oklch(0.47 0.166 356) !important;
             font-weight: 600;
             text-transform: none;
@@ -95,6 +98,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           .animated-gradient-pill span {
             position: relative;
             z-index: 10 !important;
+            pointer-events: none;
           }
           .animated-gradient-pill:hover {
             color: var(--hover-text);
@@ -115,7 +119,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             border-radius: 9999px;
             z-index: -1;
             transition: background 0.4s ease;
-            pointer-events: none;
+            pointer-events: none !important;
           }
           .animated-gradient-pill:hover::before {
             background: var(--hover-fill);
@@ -138,7 +142,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             animation: spin-gradient var(--anim-duration) linear infinite;
             z-index: -2;
             transform-origin: center center;
-            pointer-events: none;
+            pointer-events: none !important;
           }
           @media (prefers-reduced-motion: reduce) {
             .animated-gradient-pill::after {
@@ -154,7 +158,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           style={style}
           {...props}
         >
-          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)] pointer-events-none select-none" style={{ zIndex: 10 }}>
+          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)] pointer-events-none select-none">
             {icon && iconPosition === "left" && (
               <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
                 {icon}
