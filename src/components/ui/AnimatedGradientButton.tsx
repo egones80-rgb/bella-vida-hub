@@ -106,8 +106,9 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             user-select: none;
           }
           .animated-gradient-pill:hover {
-            color: var(--hover-text);
+            color: var(--hover-text) !important;
             box-shadow: 
+
               0 0 15px var(--hover-glow),
               0 0 40px oklch(from var(--hover-glow) l c h / 0.4);
             transform: scale(1.03);
