@@ -90,7 +90,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           }
           .animated-gradient-pill {
             position: relative;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0.75rem 2.25rem;
