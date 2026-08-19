@@ -34,7 +34,7 @@ export function CtaSection() {
             variant="secondary" 
             className="mt-9 rounded-full px-8 py-6 shadow-soft transition-all duration-300 hover:scale-105 active:scale-95 bg-white text-primary hover:bg-gold hover:text-white"
           >
-            <a href={whatsappLink("Olá! Gostaria de agendar um atendimento no Espaço Bella Vida.")} target="_blank" rel="noopener noreferrer">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5 mr-2" /> Agendar pelo WhatsApp
             </a>
           </Button>

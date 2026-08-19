@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
-import spaceImage from "@/assets/space.jpg";
+const spaceImage = "/space.jpg";
 
 const pillars = [
   "Atendimento personalizado do início ao fim",

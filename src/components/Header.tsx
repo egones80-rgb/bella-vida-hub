@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, MessageCircle, Flower2 } from "lucide-react";
+import { Menu, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { NAV_LINKS, whatsappLink } from "@/lib/site";
@@ -25,12 +25,11 @@ export function Header() {
     >
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4">
         <a href="#inicio" className="flex min-w-0 items-center gap-2.5">
-          <div className="relative shrink-0">
-            <div className="absolute -inset-1 rounded-full bg-gradient-rose opacity-20 blur-sm" />
-            <span className="relative grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold border border-gold/30">
-              EBV
-            </span>
-          </div>
+          <img
+            src="/logo.png"
+            alt="Espaço Bella Vida Logo"
+            className="h-10 w-auto shrink-0 object-contain"
+          />
           <span className="min-w-0 leading-tight">
             <span className="block truncate font-display text-lg font-semibold tracking-tight">
               Espaço Bella Vida

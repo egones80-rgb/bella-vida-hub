@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { whatsappLink } from "@/lib/site";
-import careImage from "@/assets/care.jpg";
+const careImage = "/care.jpg";
 
 export function Highlight() {
   return (
@@ -50,7 +50,7 @@ export function Highlight() {
             diferentes experiências para você cuidar de si em um ambiente planejado para o seu conforto absoluto.
           </p>
           <Button asChild size="lg" className="mt-8 rounded-full shadow-soft transition-all duration-300 hover:scale-105 active:scale-95">
-            <a href={whatsappLink("Olá! Vi o site e gostaria de agendar meu momento Bella Vida.")} target="_blank" rel="noopener noreferrer">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-4 w-4" /> Agendar meu horário
             </a>
           </Button>
