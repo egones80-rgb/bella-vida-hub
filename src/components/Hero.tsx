@@ -64,7 +64,7 @@ export function Hero() {
             alt="Cliente recebendo tratamento facial no Espaço Bella Vida"
             width={1200}
             height={1504}
-            className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-lift"
+            className="relative aspect-[16/10] w-full rounded-[2rem] object-cover shadow-lift"
           />
         </motion.div>
       </div>
