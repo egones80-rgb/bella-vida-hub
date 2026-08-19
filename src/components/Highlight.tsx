@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { whatsappLink } from "@/lib/site";
-import careImage from "@/assets/care.jpg";
+const careImage = "/care.jpg";
 
 export function Highlight() {
   return (
