@@ -116,7 +116,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             border-radius: 9999px;
             z-index: -1;
             transition: background 0.4s ease;
-            pointer-events: none;
+            pointer-events: none !important;
           }
           .animated-gradient-pill:hover::before {
             background: var(--hover-fill);
