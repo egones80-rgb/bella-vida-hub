@@ -160,7 +160,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
         `}} />
         <Comp
           ref={ref}
-          className={cn("animated-gradient-pill group", className)}
+          className={cn("animated-gradient-pill group inline-flex items-center justify-center", className)}
           style={style}
           {...props}
         >
