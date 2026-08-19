@@ -1,6 +1,8 @@
+import { BusinessHour, ContactInfo } from "@/types/site";
+
 export const WHATSAPP_NUMBER = "5511985064055";
 
-export const CONTACT = {
+export const CONTACT: ContactInfo = {
   phone: "(11) 98506-4055",
   phoneHref: "tel:+5511985064055",
   address: {
@@ -12,7 +14,7 @@ export const CONTACT = {
     "https://www.google.com/maps/search/?api=1&query=R.+Virg%C3%ADlio,+90+-+Vila+Prudente,+S%C3%A3o+Paulo+-+SP,+03138-050",
 } as const;
 
-export const HOURS = [
+export const HOURS: BusinessHour[] = [
   { day: "Segunda-feira", time: "09:00 – 22:00" },
   { day: "Terça-feira", time: "08:00 – 22:00" },
   { day: "Quarta-feira", time: "08:00 – 22:00" },
@@ -22,7 +24,7 @@ export const HOURS = [
   { day: "Domingo", time: "Fechado" },
 ] as const;
 
-export function whatsappLink(message = "Olá! Gostaria de agendar um atendimento no Espaço Bella Vida.") {
+export function whatsappLink(message = "Olá! Gostaria de agendar um atendimento no Espaço Bella Vida. Poderia me informar os horários disponíveis?") {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 

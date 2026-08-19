@@ -9,14 +9,8 @@ import {
   Hand,
   Activity,
   Scissors,
-  type LucideIcon,
 } from "lucide-react";
-
-export type Service = {
-  name: string;
-  description: string;
-  icon: LucideIcon;
-};
+import { Service } from "@/types/site";
 
 export const SERVICES: Service[] = [
   {

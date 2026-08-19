@@ -10,9 +10,9 @@ import { CtaSection } from "@/components/CtaSection";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
-const title = "Espaço Bella Vida — Beleza, estética e bem-estar em SP";
+const title = "Espaço Bella Vida | Estética, Beleza, Pilates e Bem-Estar";
 const description =
-  "Estética, depilação a laser, cílios, manicure, Pilates e salão de beleza na Vila Prudente. Agende seu horário pelo WhatsApp.";
+  "O melhor centro de estética e bem-estar na Vila Prudente, São Paulo. Depilação a laser, podologia, pilates, manicure e muito mais. Agende agora!";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,6 +21,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:image", content: "https://project--73c7ae0e-84ef-4f23-8b35-ef44b58ad65b.lovable.app/og-image.jpg" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

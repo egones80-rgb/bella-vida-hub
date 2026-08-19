@@ -1,4 +1,5 @@
 import { MessageCircle, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { whatsappLink } from "@/lib/site";
 import heroImage from "@/assets/hero.jpg";
@@ -17,31 +18,42 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 lg:grid-cols-[1.05fr_1fr]">
         <div className="max-w-xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-primary">
-            <Sparkles className="h-3.5 w-3.5" /> Vila Prudente · São Paulo
-          </span>
-          <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
-            Espaço <span className="text-gradient-rose">Bella Vida</span>
-          </h1>
-          <p className="mt-5 font-display text-2xl text-secondary-foreground md:text-3xl">
-            Beleza, cuidado e bem-estar em um só lugar.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Cuide de você com experiências personalizadas de estética, beleza, Pilates e bem-estar.
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="rounded-full shadow-soft">
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4" /> Agendar atendimento
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-primary/30 text-primary">
-              <a href="#servicos">Conhecer nossos serviços</a>
-            </Button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-[0.7rem] uppercase tracking-[0.2em] text-primary">
+              <Sparkles className="h-3.5 w-3.5" /> Vila Prudente · São Paulo
+            </span>
+            <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
+              Espaço <span className="text-gradient-rose">Bella Vida</span>
+            </h1>
+            <p className="mt-5 font-display text-2xl text-secondary-foreground md:text-3xl">
+              Beleza, cuidado e bem-estar em um só lugar.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Cuide de você com experiências personalizadas de estética, beleza, Pilates e bem-estar.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" className="rounded-full shadow-soft transition-transform hover:scale-105 active:scale-95">
+                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-4 w-4" /> Agendar atendimento
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full border-primary/30 text-primary transition-colors hover:bg-primary/5">
+                <a href="#servicos">Conhecer nossos serviços</a>
+              </Button>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative"
+        >
           <div
             aria-hidden
             className="absolute -inset-3 rounded-[2.5rem] border border-primary/15"
@@ -53,7 +65,7 @@ export function Hero() {
             height={1504}
             className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-lift"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
