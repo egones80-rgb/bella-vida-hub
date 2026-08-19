@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { NAV_LINKS, whatsappLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -51,11 +52,11 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <Button asChild size="sm" className="rounded-full">
+          <AnimatedGradientButton asChild icon={<MessageCircle className="h-4 w-4" />} className="px-5 py-2 text-sm">
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" /> Agendar pelo WhatsApp
+              Agendar pelo WhatsApp
             </a>
-          </Button>
+          </AnimatedGradientButton>
         </nav>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -77,11 +78,11 @@ export function Header() {
                   {l.label}
                 </a>
               ))}
-              <Button asChild className="mt-4 rounded-full">
+              <AnimatedGradientButton asChild icon={<MessageCircle className="h-4 w-4" />} className="mt-4 w-full">
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4" /> Agendar pelo WhatsApp
+                  Agendar pelo WhatsApp
                 </a>
-              </Button>
+              </AnimatedGradientButton>
             </nav>
           </SheetContent>
         </Sheet>
