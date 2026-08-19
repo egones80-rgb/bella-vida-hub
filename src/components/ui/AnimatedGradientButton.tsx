@@ -98,12 +98,18 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           .animated-gradient-pill .content-wrapper {
             position: relative;
             z-index: 10;
-            pointer-events: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: var(--icon-spacing);
             user-select: none;
+            width: 100%;
+            height: 100%;
+          }
+          /* This is the key: content-wrapper pointer-events-none */
+          .animated-gradient-pill .content-wrapper,
+          .animated-gradient-pill .content-wrapper * {
+            pointer-events: none !important;
           }
           .animated-gradient-pill:hover {
             color: var(--hover-text) !important;
