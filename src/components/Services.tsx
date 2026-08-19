@@ -7,7 +7,7 @@ export function Services() {
   return (
     <section id="servicos" className="mx-auto max-w-6xl px-5 py-24 md:py-32">
       <div className="max-w-2xl">
-        <span className="text-xs uppercase tracking-[0.25em] text-primary">Nossos serviços</span>
+        <span className="text-xs uppercase tracking-[0.25em] text-primary">Experiências</span>
         <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">
           Nossos serviços
         </h2>
