@@ -181,23 +181,17 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
         `}} />
         <Comp
           ref={ref}
-          className={cn("animated-gradient-pill group inline-flex items-center justify-center", className)}
+          className={cn("animated-gradient-pill group", className)}
           style={style}
           {...props}
         >
-          <span className="content-wrapper">
-            {icon && iconPosition === "left" && (
-              <span className="shrink-0 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
-                {icon}
-              </span>
-            )}
-            <span className="inline-block">{children}</span>
-            {icon && iconPosition === "right" && (
-              <span className="shrink-0 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
-                {icon}
-              </span>
-            )}
-          </span>
+          {asChild ? (
+            React.isValidElement(children) ? (
+              React.cloneElement(children as React.ReactElement<any>, {
+                children: content
+              })
+            ) : content
+          ) : content}
         </Comp>
       </>
     );
