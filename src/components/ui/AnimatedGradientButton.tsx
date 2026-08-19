@@ -105,8 +105,8 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 200%;
-            height: 200%;
+            width: 250%; /* Larger to ensure it covers even long pills */
+            aspect-ratio: 1/1;
             background: conic-gradient(
               from 0deg,
               transparent 0%,
