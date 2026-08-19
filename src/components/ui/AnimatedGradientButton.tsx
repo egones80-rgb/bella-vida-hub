@@ -87,10 +87,14 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             z-index: 1;
             cursor: pointer;
             border: none;
-            color: oklch(0.47 0.166 356);
+            color: oklch(0.47 0.166 356) !important;
             font-weight: 600;
             text-transform: none;
             white-space: nowrap;
+          }
+          .animated-gradient-pill span {
+            position: relative;
+            z-index: 10 !important;
           }
           .animated-gradient-pill:hover {
             color: var(--hover-text);
