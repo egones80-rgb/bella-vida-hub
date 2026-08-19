@@ -25,9 +25,12 @@ export function Header() {
     >
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4">
         <a href="#inicio" className="flex min-w-0 items-center gap-2.5">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
-            <Flower2 className="h-5 w-5" />
-          </span>
+          <div className="relative shrink-0">
+            <div className="absolute -inset-1 rounded-full bg-gradient-rose opacity-20 blur-sm" />
+            <span className="relative grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold border border-gold/30">
+              EBV
+            </span>
+          </div>
           <span className="min-w-0 leading-tight">
             <span className="block truncate font-display text-lg font-semibold tracking-tight">
               Espaço Bella Vida

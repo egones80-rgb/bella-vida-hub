@@ -7,8 +7,8 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
-              <Flower2 className="h-5 w-5" />
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold border border-gold/30">
+              EBV
             </span>
             <span className="font-display text-xl font-semibold">Espaço Bella Vida</span>
           </div>
