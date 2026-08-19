@@ -53,6 +53,21 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
     const finalHoverFillColor = hoverFillColor || (isPrimary ? "oklch(0.47 0.166 356)" : "oklch(0.63 0.155 358)");
     const finalHoverGlowColor = hoverGlowColor || (isPrimary ? "oklch(0.63 0.155 358)" : "oklch(0.47 0.166 356)");
     const Comp = asChild ? Slot : "button";
+    const content = (
+      <span className="content-wrapper">
+        {icon && iconPosition === "left" && (
+          <span className="shrink-0 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
+            {icon}
+          </span>
+        )}
+        <span className="inline-block">{children}</span>
+        {icon && iconPosition === "right" && (
+          <span className="shrink-0 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
+            {icon}
+          </span>
+        )}
+      </span>
+    );
 
     const style = {
       "--head-color": finalHeadColor,
@@ -87,28 +102,38 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             z-index: 1;
             cursor: pointer;
             border: none;
-            pointer-events: auto !important;
+            pointer-events: auto;
             user-select: auto !important;
             touch-action: manipulation;
-            color: oklch(0.47 0.166 356) !important;
+            color: oklch(0.47 0.166 356);
             font-weight: 600;
             text-transform: none;
             white-space: nowrap;
           }
-          .animated-gradient-pill span {
+          .animated-gradient-pill .content-wrapper {
             position: relative;
-            z-index: 10 !important;
-            pointer-events: none;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--icon-spacing);
+            user-select: none;
+            width: 100%;
+            height: 100%;
+            pointer-events: none !important;
+          }
+          .animated-gradient-pill .content-wrapper * {
+            pointer-events: none !important;
           }
           .animated-gradient-pill:hover {
-            color: var(--hover-text);
+            color: var(--hover-text) !important;
             box-shadow: 
               0 0 15px var(--hover-glow),
               0 0 40px oklch(from var(--hover-glow) l c h / 0.4);
             transform: scale(1.03);
           }
           .animated-gradient-pill:active {
-            transform: scale(0.97);
+            transform: scale(0.97) !important;
           }
           /* Background layer */
           .animated-gradient-pill::before {
@@ -158,19 +183,13 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           style={style}
           {...props}
         >
-          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)] pointer-events-none select-none">
-            {icon && iconPosition === "left" && (
-              <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
-                {icon}
-              </span>
-            )}
-            {children}
-            {icon && iconPosition === "right" && (
-              <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
-                {icon}
-              </span>
-            )}
-          </span>
+          {asChild ? (
+            React.isValidElement(children) ? (
+              React.cloneElement(children as React.ReactElement<any>, {
+                children: content
+              })
+            ) : content
+          ) : content}
         </Comp>
       </>
     );
