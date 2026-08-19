@@ -1,6 +1,7 @@
 import { MessageCircle, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { whatsappLink } from "@/lib/site";
 import heroAsset from "@/assets/hero-banner.png.asset.json";
 const heroImage = heroAsset.url;
@@ -37,11 +38,11 @@ export function Hero() {
               Cuide de você com experiências personalizadas de estética, beleza, Pilates e bem-estar.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="rounded-full shadow-soft transition-transform hover:scale-105 active:scale-95">
+              <AnimatedGradientButton asChild icon={<MessageCircle className="h-4 w-4" />}>
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4" /> Agendar atendimento
+                  Agendar atendimento
                 </a>
-              </Button>
+              </AnimatedGradientButton>
               <Button asChild size="lg" variant="outline" className="rounded-full border-primary/30 text-primary transition-colors hover:bg-primary/5">
                 <a href="#servicos">Conhecer nossos serviços</a>
               </Button>

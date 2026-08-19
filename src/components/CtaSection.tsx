@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { whatsappLink } from "@/lib/site";
 
 export function CtaSection() {
@@ -28,16 +28,20 @@ export function CtaSection() {
           <p className="mt-5 opacity-90 text-lg font-display">
             Escolha seu serviço e fale conosco pelo WhatsApp para encontrar o melhor horário para você na Vila Prudente.
           </p>
-          <Button 
+          <AnimatedGradientButton 
             asChild 
-            size="lg" 
-            variant="secondary" 
-            className="mt-9 rounded-full px-8 py-6 shadow-soft transition-all duration-300 hover:scale-105 active:scale-95 bg-white text-primary hover:bg-gold hover:text-white"
+            className="mt-9 px-8 py-6 text-lg"
+            icon={<MessageCircle className="h-6 w-6" />}
+            hoverFillColor="white"
+            hoverTextColor="oklch(0.47 0.166 356)"
+            hoverGlowColor="white"
+            trailColor="white"
+            headColor="oklch(0.97 0.02 350)"
           >
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-5 w-5 mr-2" /> Agendar pelo WhatsApp
+              Agendar pelo WhatsApp
             </a>
-          </Button>
+          </AnimatedGradientButton>
         </div>
       </motion.div>
     </section>

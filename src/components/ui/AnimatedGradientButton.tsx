@@ -1,0 +1,156 @@
+import * as React from "react";
+import { cn } from "@/lib/utils";
+import { Slot } from "@radix-ui/react-slot";
+
+interface AnimatedGradientButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  asChild?: boolean;
+  headColor?: string;
+  trailColor?: string;
+  trailLength?: number; // 5 to 60
+  animationDuration?: number; // seconds
+  borderWidth?: number;
+  icon?: React.ReactNode;
+  iconPosition?: "left" | "right";
+  iconSpacing?: number;
+  cometCount?: number;
+  hoverFillColor?: string;
+  hoverTextColor?: string;
+  hoverIconColor?: string;
+  hoverGlowColor?: string;
+}
+
+export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, AnimatedGradientButtonProps>(
+  (
+    {
+      className,
+      asChild = false,
+      children,
+      headColor = "#FFFFFF",
+      trailColor = "oklch(0.63 0.155 358)", // --rose-soft
+      trailLength = 30,
+      animationDuration = 3,
+      borderWidth = 2,
+      icon,
+      iconPosition = "left",
+      iconSpacing = 8,
+      cometCount = 1,
+      hoverFillColor = "oklch(0.47 0.166 356)", // --magenta
+      hoverTextColor = "#FFFFFF",
+      hoverIconColor = "#FFFFFF",
+      hoverGlowColor = "oklch(0.63 0.155 358)", // --rose-soft
+      ...props
+    },
+    ref
+  ) => {
+    const Comp = asChild ? Slot : "button";
+
+    const style = {
+      "--head-color": headColor,
+      "--trail-color": trailColor,
+      "--trail-length": `${trailLength}%`,
+      "--anim-duration": `${animationDuration}s`,
+      "--border-width": `${borderWidth}px`,
+      "--hover-fill": hoverFillColor,
+      "--hover-text": hoverTextColor,
+      "--hover-glow": hoverGlowColor,
+      "--icon-spacing": `${iconSpacing}px`,
+    } as React.CSSProperties;
+
+    return (
+      <>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes spin-gradient {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+          }
+          .animated-gradient-pill {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2.25rem;
+            border-radius: 9999px;
+            overflow: hidden;
+            background: oklch(1 0 0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            isolation: isolate;
+            z-index: 0;
+            cursor: pointer;
+            border: none;
+            color: oklch(0.47 0.166 356);
+            font-weight: 600;
+            text-transform: none;
+            white-space: nowrap;
+          }
+          .animated-gradient-pill:hover {
+            background: var(--hover-fill);
+            color: var(--hover-text);
+            box-shadow: 
+              0 0 15px var(--hover-glow),
+              0 0 40px oklch(from var(--hover-glow) l c h / 0.4);
+            transform: scale(1.03);
+          }
+          .animated-gradient-pill:active {
+            transform: scale(0.97);
+          }
+          .animated-gradient-pill::before {
+            content: '';
+            position: absolute;
+            inset: var(--border-width);
+            background: inherit;
+            border-radius: 9999px;
+            z-index: 1;
+            transition: background 0.4s ease;
+          }
+          .animated-gradient-pill::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            aspect-ratio: 1/1;
+            background: conic-gradient(
+              from 0deg,
+              transparent 0%,
+              transparent calc(100% - var(--trail-length)),
+              var(--trail-color) calc(100% - var(--trail-length) + 10%),
+              var(--head-color) 100%
+            );
+            animation: spin-gradient var(--anim-duration) linear infinite;
+            z-index: -1;
+            transform-origin: center center;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .animated-gradient-pill::after {
+              animation: none;
+              background: var(--trail-color);
+              opacity: 0.5;
+            }
+          }
+        `}} />
+        <Comp
+          ref={ref}
+          className={cn("animated-gradient-pill group", className)}
+          style={style}
+          {...props}
+        >
+          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)]">
+            {icon && iconPosition === "left" && (
+              <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
+                {icon}
+              </span>
+            )}
+            {children}
+            {icon && iconPosition === "right" && (
+              <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
+                {icon}
+              </span>
+            )}
+          </span>
+        </Comp>
+      </>
+    );
+  }
+);
+
+AnimatedGradientButton.displayName = "AnimatedGradientButton";
