@@ -135,7 +135,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             transform: scale(1.03);
           }
           .animated-gradient-pill:active {
-            transform: scale(0.97);
+            transform: scale(0.97) !important;
           }
           /* Background layer */
           .animated-gradient-pill::before {
