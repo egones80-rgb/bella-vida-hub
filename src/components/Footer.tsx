@@ -7,9 +7,11 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground font-display text-lg font-bold border border-gold/30">
-              EBV
-            </span>
+            <img
+              src="/logo.png"
+              alt="Espaço Bella Vida Logo"
+              className="h-10 w-auto shrink-0 object-contain"
+            />
             <span className="font-display text-xl font-semibold">Espaço Bella Vida</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">Beleza, cuidado e bem-estar.</p>
