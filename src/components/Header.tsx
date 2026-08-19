@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { NAV_LINKS, whatsappLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +27,7 @@ export function Header() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4">
         <a href="#inicio" className="flex min-w-0 items-center gap-2.5">
           <img
-            src="/logo.png"
+            src={logoAsset.url}
             alt="Espaço Bella Vida Logo"
             className="h-10 w-auto shrink-0 object-contain"
           />
