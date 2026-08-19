@@ -1,13 +1,9 @@
+import { Testimonial } from "@/types/site";
+
 /**
  * DADOS DE DEMONSTRAÇÃO.
  * Não há integração real de avaliações. Substituir por dados reais quando disponível.
  */
-export type Testimonial = {
-  name: string;
-  rating: number;
-  comment: string;
-};
-
 export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Ana Carolina",
