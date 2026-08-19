@@ -86,6 +86,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             isolation: isolate;
             z-index: 1;
             cursor: pointer;
+            pointer-events: auto !important;
             border: none;
             color: oklch(0.47 0.166 356) !important;
             font-weight: 600;
