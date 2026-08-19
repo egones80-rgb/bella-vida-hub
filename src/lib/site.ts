@@ -24,7 +24,16 @@ export const HOURS: BusinessHour[] = [
   { day: "Domingo", time: "Fechado" },
 ] as const;
 
-export function whatsappLink(message = "Olá! Gostaria de agendar um atendimento no Espaço Bella Vida. Poderia me informar os horários disponíveis?") {
+export function whatsappLink(service?: string) {
+  const baseMessage = "Olá! Vim pelo site do Espaço Bella Vida e gostaria de agendar ";
+  const defaultAction = "um atendimento";
+  const suffix = ". Poderia me informar os horários disponíveis?";
+
+  const message = service
+    ? `${baseMessage}${service}${suffix}`
+    : `${baseMessage}${defaultAction}${suffix}`;
+
+  console.log("[WhatsApp]", { service, message });
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
