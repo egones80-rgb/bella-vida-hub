@@ -1,7 +1,7 @@
-import { Clock, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, MapPin, MessageCircle, Phone, Navigation, CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { CONTACT, HOURS, whatsappLink } from "@/lib/site";
 
 export function Contact() {
@@ -44,11 +44,16 @@ export function Contact() {
                     <br />
                     {CONTACT.address.zip}
                   </p>
-                  <Button asChild variant="outline" size="sm" className="mt-5 rounded-full border-primary/30 text-primary transition-colors hover:bg-primary/5">
+                  <AnimatedGradientButton 
+                    asChild 
+                    variant="secondary" 
+                    className="mt-5 px-4 py-1.5 text-xs"
+                    icon={<Navigation className="h-3.5 w-3.5" />}
+                  >
                     <a href={CONTACT.mapsUrl} target="_blank" rel="noopener noreferrer">
                       Como chegar
                     </a>
-                  </Button>
+                  </AnimatedGradientButton>
                 </div>
               </div>
             </Card>
@@ -82,14 +87,20 @@ export function Contact() {
                 <MessageCircle className="h-5 w-5" />
               </span>
               <h3 className="mt-4 font-display text-xl font-semibold text-foreground">WhatsApp</h3>
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 block text-sm text-muted-foreground transition-colors hover:text-primary font-medium"
+              <AnimatedGradientButton 
+                asChild 
+                className="mt-2 w-full py-1.5 text-xs"
+                icon={<CalendarDays className="h-3.5 w-3.5" />}
+                onClick={() => console.log('[AnimatedGradientButton] WhatsApp Contact clicado')}
               >
-                {CONTACT.phone}
-              </a>
+                <a
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Agendar atendimento
+                </a>
+              </AnimatedGradientButton>
             </Card>
           </motion.div>
         </div>

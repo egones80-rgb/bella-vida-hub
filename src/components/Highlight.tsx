@@ -1,6 +1,6 @@
-import { MessageCircle } from "lucide-react";
+import { CalendarDays, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { whatsappLink } from "@/lib/site";
 const careImage = "/care.jpg";
 
@@ -49,11 +49,16 @@ export function Highlight() {
             Do cuidado com a pele aos cabelos, unhas, corpo e bem-estar, o Espaço Bella Vida reúne
             diferentes experiências para você cuidar de si em um ambiente planejado para o seu conforto absoluto.
           </p>
-          <Button asChild size="lg" className="mt-8 rounded-full shadow-soft transition-all duration-300 hover:scale-105 active:scale-95">
+          <AnimatedGradientButton 
+            asChild 
+            className="mt-8"
+            icon={<CalendarDays className="h-4 w-4" />}
+            onClick={() => console.log('[AnimatedGradientButton] Agendar meu horário (Highlight) clicado')}
+          >
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" /> Agendar meu horário
+              Agendar meu horário
             </a>
-          </Button>
+          </AnimatedGradientButton>
         </motion.div>
       </div>
     </section>

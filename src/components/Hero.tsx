@@ -1,6 +1,5 @@
-import { MessageCircle, Sparkles } from "lucide-react";
+import { CalendarDays, MessageCircle, Sparkles, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { whatsappLink } from "@/lib/site";
 import heroAsset from "@/assets/hero-banner.png.asset.json";
@@ -38,14 +37,26 @@ export function Hero() {
               Cuide de você com experiências personalizadas de estética, beleza, Pilates e bem-estar.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <AnimatedGradientButton asChild icon={<MessageCircle className="h-4 w-4" />}>
+              <AnimatedGradientButton 
+                asChild 
+                icon={<CalendarDays className="h-4 w-4" />}
+                onClick={() => console.log('[AnimatedGradientButton] Agendar atendimento clicado')}
+              >
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
                   Agendar atendimento
                 </a>
               </AnimatedGradientButton>
-              <Button asChild size="lg" variant="outline" className="rounded-full border-primary/30 text-primary transition-colors hover:bg-primary/5">
+              <AnimatedGradientButton 
+                asChild 
+                variant="secondary" 
+                icon={<ArrowDown className="h-4 w-4" />}
+                onClick={() => {
+                  console.log('[AnimatedGradientButton] Conhecer nossos serviços clicado');
+                  document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 <a href="#servicos">Conhecer nossos serviços</a>
-              </Button>
+              </AnimatedGradientButton>
             </div>
           </motion.div>
         </div>

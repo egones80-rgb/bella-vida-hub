@@ -37,6 +37,7 @@ export function CtaSection() {
             hoverGlowColor="white"
             trailColor="white"
             headColor="oklch(0.97 0.02 350)"
+            onClick={() => console.log('[AnimatedGradientButton] CTA Final clicado')}
           >
             <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
               Agendar pelo WhatsApp
