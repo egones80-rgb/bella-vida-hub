@@ -139,7 +139,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             animation: spin-gradient var(--anim-duration) linear infinite;
             z-index: -2;
             transform-origin: center center;
-            pointer-events: none;
+            pointer-events: none !important;
           }
           @media (prefers-reduced-motion: reduce) {
             .animated-gradient-pill::after {
