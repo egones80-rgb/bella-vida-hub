@@ -150,7 +150,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           style={style}
           {...props}
         >
-          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)] pointer-events-none select-none">
+          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)] pointer-events-none select-none" style={{ zIndex: 10 }}>
             {icon && iconPosition === "left" && (
               <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
                 {icon}
