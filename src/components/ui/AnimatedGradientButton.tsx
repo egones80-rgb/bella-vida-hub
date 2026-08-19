@@ -81,20 +81,22 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
             padding: 0.75rem 2.25rem;
             border-radius: 9999px;
             overflow: hidden;
-            background: oklch(1 0 0);
+            background: transparent;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             isolation: isolate;
-            z-index: 0;
+            z-index: 1;
             cursor: pointer;
             border: none;
-            color: oklch(0.47 0.166 356);
+            color: oklch(0.47 0.166 356) !important;
             font-weight: 600;
             text-transform: none;
             white-space: nowrap;
-            pointer-events: auto;
+          }
+          .animated-gradient-pill span {
+            position: relative;
+            z-index: 10 !important;
           }
           .animated-gradient-pill:hover {
-            background: var(--hover-fill);
             color: var(--hover-text);
             box-shadow: 
               0 0 15px var(--hover-glow),
@@ -104,16 +106,21 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           .animated-gradient-pill:active {
             transform: scale(0.97);
           }
+          /* Background layer */
           .animated-gradient-pill::before {
             content: '';
             position: absolute;
             inset: var(--border-width);
-            background: inherit;
+            background: oklch(1 0 0);
             border-radius: 9999px;
-            z-index: 1;
+            z-index: -1;
             transition: background 0.4s ease;
             pointer-events: none;
           }
+          .animated-gradient-pill:hover::before {
+            background: var(--hover-fill);
+          }
+          /* Animated gradient layer */
           .animated-gradient-pill::after {
             content: '';
             position: absolute;
@@ -129,8 +136,9 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
               var(--head-color) 100%
             );
             animation: spin-gradient var(--anim-duration) linear infinite;
-            z-index: -1;
+            z-index: -2;
             transform-origin: center center;
+            pointer-events: none;
           }
           @media (prefers-reduced-motion: reduce) {
             .animated-gradient-pill::after {
@@ -146,7 +154,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           style={style}
           {...props}
         >
-          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)] pointer-events-none select-none">
+          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)] pointer-events-none select-none" style={{ zIndex: 10 }}>
             {icon && iconPosition === "left" && (
               <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
                 {icon}
