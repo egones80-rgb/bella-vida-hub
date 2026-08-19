@@ -2,7 +2,8 @@ import { MessageCircle, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { whatsappLink } from "@/lib/site";
-const heroImage = "/hero.jpg";
+import heroAsset from "@/assets/hero-banner.png.asset.json";
+const heroImage = heroAsset.url;
 
 export function Hero() {
   return (
