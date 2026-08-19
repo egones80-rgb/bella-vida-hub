@@ -53,6 +53,21 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
     const finalHoverFillColor = hoverFillColor || (isPrimary ? "oklch(0.47 0.166 356)" : "oklch(0.63 0.155 358)");
     const finalHoverGlowColor = hoverGlowColor || (isPrimary ? "oklch(0.63 0.155 358)" : "oklch(0.47 0.166 356)");
     const Comp = asChild ? Slot : "button";
+    const content = (
+      <span className="content-wrapper">
+        {icon && iconPosition === "left" && (
+          <span className="shrink-0 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
+            {icon}
+          </span>
+        )}
+        <span className="inline-block">{children}</span>
+        {icon && iconPosition === "right" && (
+          <span className="shrink-0 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
+            {icon}
+          </span>
+        )}
+      </span>
+    );
 
     const style = {
       "--head-color": finalHeadColor,
