@@ -144,7 +144,7 @@ export const AnimatedGradientButton = React.forwardRef<HTMLButtonElement, Animat
           style={style}
           {...props}
         >
-          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)]">
+          <span className="relative z-10 flex items-center justify-center gap-[var(--icon-spacing)] pointer-events-none">
             {icon && iconPosition === "left" && (
               <span className="shrink-0 transition-transform duration-300 group-hover:scale-110">
                 {icon}
