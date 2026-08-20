@@ -7,7 +7,7 @@ const items = [
     highlight: "4,5 ★",
     title: "Avaliação das clientes",
     icon: Star,
-    accent: true,
+    accent: false,
   },
   { highlight: "10+", title: "Serviços especializados", icon: Sparkles, accent: false },
   {
