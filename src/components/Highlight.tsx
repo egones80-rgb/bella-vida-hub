@@ -2,7 +2,7 @@ import { CalendarDays, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { whatsappLink } from "@/lib/site";
-import careImage from "@/assets/care.jpg";
+import lashes2Asset from "@/assets/lashes-2.jpg.asset.json";
 
 export function Highlight() {
   return (
@@ -16,7 +16,7 @@ export function Highlight() {
           transition={{ duration: 0.8 }}
         >
           <img
-            src={careImage}
+            src={lashes2Asset.url}
             alt="Mãos com manicure delicada em ambiente de autocuidado"
             loading="lazy"
             width={1200}
