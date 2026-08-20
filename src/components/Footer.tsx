@@ -10,7 +10,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2.5">
             <img
-              src={logoImage}
+              src={logoAsset.url}
               alt="Espaço Bella Vida Logo"
               className="h-10 w-auto shrink-0 object-contain"
             />

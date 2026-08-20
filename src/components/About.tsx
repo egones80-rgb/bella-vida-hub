@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
-import spaceImage from "@/assets/space.jpg";
+import pilates2Asset from "@/assets/pilates-2.jpg.asset.json";
 
 const pillars = [
   "Atendimento personalizado do início ao fim",
@@ -55,7 +55,7 @@ export function About() {
         >
           <div className="absolute -inset-4 rounded-[2.5rem] border border-primary/10 -z-10" />
           <img
-            src={spaceImage}
+            src={pilates2Asset.url}
             alt="Ambiente elegante do Espaço Bella Vida"
             loading="lazy"
             width={1408}

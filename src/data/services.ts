@@ -12,6 +12,15 @@ import {
 } from "lucide-react";
 import { Service } from "@/types/site";
 
+// Import asset pointers
+import nails1Asset from "@/assets/nails-1.jpg.asset.json";
+import pilates1Asset from "@/assets/pilates-1.jpg.asset.json";
+import hairAsset from "@/assets/hair.jpg.asset.json";
+import lashes1Asset from "@/assets/lashes-1.jpg.asset.json";
+import lashes2Asset from "@/assets/lashes-2.jpg.asset.json";
+import nails2Asset from "@/assets/nails-2.jpg.asset.json";
+import pilates2Asset from "@/assets/pilates-2.jpg.asset.json";
+
 export const SERVICES: Service[] = [
   {
     name: "Drenagem Facial",
@@ -42,21 +51,25 @@ export const SERVICES: Service[] = [
     name: "Morena Iluminada",
     description: "Técnica de iluminação dos fios que realça o tom natural com brilho sofisticado.",
     icon: Sun,
+    image: hairAsset.url,
   },
   {
     name: "Extensão de Cílios",
     description: "Olhar marcante com fios leves, naturais e acabamento impecável.",
     icon: Eye,
+    image: lashes1Asset.url,
   },
   {
     name: "Manicure",
     description: "Unhas bem cuidadas, alinhadas e com acabamento delicado e duradouro.",
     icon: Hand,
+    image: nails1Asset.url,
   },
   {
     name: "Pilates",
     description: "Movimento, força e equilíbrio em aulas que cuidam do corpo e da mente.",
     icon: Activity,
+    image: pilates1Asset.url,
   },
   {
     name: "Salão de Beleza",

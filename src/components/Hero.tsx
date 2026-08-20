@@ -2,7 +2,7 @@ import { CalendarDays, MessageCircle, Sparkles, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { whatsappLink } from "@/lib/site";
-import heroImage from "@/assets/hero-banner.png";
+import heroAsset from "@/assets/hero-banner.png.asset.json";
 
 export function Hero() {
   return (
@@ -71,7 +71,7 @@ export function Hero() {
             className="absolute -inset-3 rounded-[2.5rem] border border-primary/15"
           />
           <img
-            src={heroImage}
+            src={heroAsset.url}
             alt="Cliente recebendo tratamento facial no Espaço Bella Vida"
             width={1200}
             height={1504}

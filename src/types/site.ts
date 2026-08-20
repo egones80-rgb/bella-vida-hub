@@ -4,6 +4,7 @@ export interface Service {
   name: string;
   description: string;
   icon: LucideIcon;
+  image?: string;
 }
 
 export interface Testimonial {

@@ -32,15 +32,28 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <Card
-              className="group h-full flex flex-col rounded-2xl border-border/70 bg-card p-7 transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-lift"
             >
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-rose-light text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
-                <service.icon className="h-5 w-5" />
-              </span>
-              <h3 className="mt-5 font-display text-2xl font-semibold text-foreground">{service.name}</h3>
+              <div className="relative h-48 w-full overflow-hidden rounded-xl mb-5">
+                {service.image ? (
+                  <img
+                    src={service.image}
+                    alt={`Procedimento de ${service.name}`}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-rose-light/30">
+                    <service.icon className="h-10 w-10 text-primary/40" />
+                  </div>
+                )}
+                <div className="absolute top-3 left-3">
+                  <span className="grid h-10 w-10 place-items-center rounded-full bg-background/90 text-primary shadow-sm backdrop-blur-sm transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                    <service.icon className="h-4 w-4" />
+                  </span>
+                </div>
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground">{service.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-grow">{service.description}</p>
+
               <AnimatedGradientButton
                 asChild
                 className="mt-5 w-full py-2 text-xs"
