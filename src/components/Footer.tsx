@@ -1,6 +1,6 @@
 import { Flower2, MapPin, MessageCircle, Phone } from "lucide-react";
 import { CONTACT, NAV_LINKS, whatsappLink } from "@/lib/site";
-import logoImage from "@/assets/logo.png";
+import logoAsset from "@/assets/logo.png.asset.json";
 
 
 export function Footer() {
