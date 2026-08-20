@@ -2,7 +2,7 @@ import { CalendarDays, MessageCircle, Sparkles, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { whatsappLink } from "@/lib/site";
-const heroImage = "/hero-banner.png";
+import heroImage from "@/assets/hero-banner.png";
 
 export function Hero() {
   return (

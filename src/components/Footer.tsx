@@ -1,5 +1,6 @@
 import { Flower2, MapPin, MessageCircle, Phone } from "lucide-react";
 import { CONTACT, NAV_LINKS, whatsappLink } from "@/lib/site";
+import logoImage from "@/assets/logo.png";
 
 
 export function Footer() {
@@ -9,7 +10,7 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-2.5">
             <img
-              src="/logo.png"
+              src={logoImage}
               alt="Espaço Bella Vida Logo"
               className="h-10 w-auto shrink-0 object-contain"
             />
