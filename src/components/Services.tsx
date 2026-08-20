@@ -32,6 +32,9 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <Card
+              className="group h-full flex flex-col rounded-2xl border-border/70 bg-card p-7 transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-lift"
             >
               <div className="relative h-48 w-full overflow-hidden rounded-xl mb-5">
                 {service.image ? (
@@ -53,7 +56,6 @@ export function Services() {
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground">{service.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground flex-grow">{service.description}</p>
-
               <AnimatedGradientButton
                 asChild
                 className="mt-5 w-full py-2 text-xs"
