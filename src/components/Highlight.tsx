@@ -2,7 +2,7 @@ import { CalendarDays, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedGradientButton } from "@/components/ui/AnimatedGradientButton";
 import { whatsappLink } from "@/lib/site";
-const careImage = "/care.jpg";
+import careImage from "@/assets/care.jpg";
 
 export function Highlight() {
   return (
